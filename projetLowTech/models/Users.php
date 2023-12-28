@@ -2,10 +2,10 @@
 
 abstract class Visiteur {
     public function voirAnnonce($annonce) {
+        return $annonce;
     }
 }
 
-// Classe Bénévole
 class Benevole extends Visiteur {
     private $nom;
     private $prenom;
@@ -40,9 +40,16 @@ class Benevole extends Visiteur {
         }
         $this->commentaires[$annonce][] = $commentaire;
     }
+
+    public function getCommentairesAnnonce($annonce) {
+        if (isset($this->commentaires[$annonce])) {
+            return $this->commentaires[$annonce];
+        }
+        return [];
+    }
 }
 
-// Classe Modérateur
+
 class Moderateur extends Benevole {
     private $annonces = []; 
     private $isModerateur = true;
