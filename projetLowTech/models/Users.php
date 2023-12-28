@@ -16,17 +16,19 @@ class Benevole extends Visiteur {
     private $ville;
     private $reponses = []; 
     private $commentaires = [];
+    private $motDePasse;
 
-    public function __construct($nom, $prenom, $mail, $adresse, $telephone, $ville) {
+    public function __construct($nom, $prenom, $mail, $adresse, $telephone, $ville,$motDePasse) {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->mail = $mail;
         $this->adresse = $adresse;
         $this->telephone = $telephone;
         $this->ville = $ville;
+        $this->motDePasse =$motDePasse;
 
         $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
-        $query = "INSERT INTO benevoles (nom, prenom, mail, adresse, telephone, ville) VALUES (:nom, :prenom, :mail, :adresse, :telephone, :ville)";
+        $query = "INSERT INTO benevoles (nom, prenom, mail, adresse, telephone, ville,motDePasse) VALUES (:nom, :prenom, :mail, :adresse, :telephone, :ville, :motDePasse)";
         $statement = $db->prepare($query);
         $statement->bindParam(':nom', $this->nom);
         $statement->bindParam(':prenom', $this->prenom);
@@ -34,6 +36,7 @@ class Benevole extends Visiteur {
         $statement->bindParam(':adresse', $this->adresse);
         $statement->bindParam(':telephone', $this->telephone);
         $statement->bindParam(':ville', $this->ville);
+        $statement->bindParam(':motDePasse', $this->motDePasse);
         $result = $statement->execute();
         if ($result) {
             echo "Nouveau bénévole ajouté avec succès!";
@@ -97,7 +100,7 @@ class Benevole extends Visiteur {
 
         $query = "SELECT commentaire FROM commentaires_annonces WHERE id_benevole = :idBenevole AND id_annonce = :idAnnonce";
         $statement = $db->prepare($query);
-        $statement->bindParam(':idBenevole', $this->id); // Supposons que vous avez un ID pour chaque bénévole
+        $statement->bindParam(':idBenevole', $this->id); 
         $statement->bindParam(':idAnnonce', $annonceId);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
