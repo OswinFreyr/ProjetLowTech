@@ -55,15 +55,56 @@ class Moderateur extends Benevole {
     private $isModerateur = true;
 
     public function creerAnnonce($titre, $description, $date, $ville, $competencesNecessaires) {
-        
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+        $query = "INSERT INTO annonces (titre, description, date, ville, competences_necessaires) VALUES (:titre, :description, :date, :ville, :competences)";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':titre', $titre);
+        $statement->bindParam(':description', $description);
+        $statement->bindParam(':date', $date);
+        $statement->bindParam(':ville', $ville);
+        $statement->bindParam(':competences', $competencesNecessaires);
+        $result = $statement->execute();
+
+        if ($result) {
+            echo "Annonce créée avec succès.";
+            return $db->lastInsertId();
+        } else {
+            echo "Erreur lors de la création de l'annonce.";
+            return null;
+        }
     }
 
-    public function modifierAnnonce($annonce, $nouvellesInfos) {
-        
+    public function modifierAnnonce($annonceId, $titre,$description,$date,$ville,$competences) {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+        $query = "UPDATE annonces SET titre = :titre, description = :description, date = :date, ville = :ville, competences_necessaires = :competences WHERE id = :annonceId";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':titre', $titre['titre']);
+        $statement->bindParam(':description', $description['description']);
+        $statement->bindParam(':date', $date['date']);
+        $statement->bindParam(':ville', $ville['ville']);
+        $statement->bindParam(':competences', $competences['competencesNecessaires']);
+        $statement->bindParam(':annonceId', $annonceId);
+        $result = $statement->execute();
+
+        if ($result) {
+            echo "Annonce modifiée avec succès.";
+        } else {
+            echo "Erreur lors de la modification de l'annonce.";
+        }
     }
 
-    public function supprimerAnnonce($annonce) {
-        
+    public function supprimerAnnonce($annonceId) {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', ''); 
+        $query = "DELETE FROM annonces WHERE id = :annonceId";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':annonceId', $annonceId);
+        $result = $statement->execute();
+
+        if ($result) {
+            echo "Annonce supprimée avec succès.";
+        } else {
+            echo "Erreur lors de la suppression de l'annonce.";
+        }
     }
 }
 
@@ -71,10 +112,27 @@ class Administrateur extends Moderateur {
     private $isAdmin = true;
     private $moderateurs = [];
     public function ajouterModerateur($nom,$prenom,$mail,$adresse,$telephone,$ville) {
-        $moderateur = new Moderateur($nom,$prenom,$mail,$adresse,$telephone,$ville);
-        $this->moderateurs[] = $moderateur;
-        return $moderateur;
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+        $query = "INSERT INTO moderateurs (nom, prenom, mail, adresse, telephone, ville) VALUES (:nom, :prenom, :mail, :adresse, :telephone, :ville)";
+        $statement = $db->prepare($query);
+
+        $statement->bindParam(':nom', $nom);
+        $statement->bindParam(':prenom', $prenom);
+        $statement->bindParam(':mail', $mail);
+        $statement->bindParam(':adresse', $adresse);
+        $statement->bindParam(':telephone', $telephone);
+        $statement->bindParam(':ville', $ville);
+        $result = $statement->execute();
+
+        if ($result) {
+            echo "Nouveau modérateur ajouté avec succès!";
+            return $db->lastInsertId();
+        } else {
+            echo "Erreur lors de l'ajout du modérateur.";
+            return null;
+        }
     }
+    
 }
 
 ?>
