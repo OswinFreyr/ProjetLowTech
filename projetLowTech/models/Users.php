@@ -10,6 +10,7 @@ class Benevole extends Visiteur {
     private $id;
     private $nom;
     private $prenom;
+    private $username;
     private $mail;
     private $adresse;
     private $telephone;
@@ -18,9 +19,12 @@ class Benevole extends Visiteur {
     private $commentaires = [];
     private $motDePasse;
 
-    public function __construct($nom, $prenom, $mail, $adresse, $telephone, $ville,$motDePasse) {
+    private $dateCreation;
+
+    public function __construct($nom, $prenom,$username, $mail, $adresse, $telephone, $ville,$motDePasse) {
         $this->nom = $nom;
         $this->prenom = $prenom;
+        $this->username = $username;
         $this->mail = $mail;
         $this->adresse = $adresse;
         $this->telephone = $telephone;

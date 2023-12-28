@@ -2,6 +2,7 @@
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $ville = $_POST['ville'];
+$username = $_POST['username'];
 $mail = $_POST['email'];
 $telephone = $_POST['telephone'];
 $motDePasse = $_POST['motdepasse'];
@@ -19,8 +20,8 @@ if ($connexion->connect_error) {
     die("Connexion échouée: " . $connexion->connect_error);
 }
 
-$statememnt = $connexion->prepare("INSERT INTO utilisateurs (nom, prenom, ville, email, telephone, motdepasse) VALUES (?, ?, ?, ?, ?, ?)");
-$statememnt->bind_param("ssssss", $nom, $prenom, $ville, $email, $telephone, $hashedMdp);
+$statememnt = $connexion->prepare("INSERT INTO users (nom, prenom,username, ville, email, telephone, motdepasse) VALUES (?, ?, ?, ?, ?, ?)");
+$statememnt->bind_param("ssssss", $nom, $prenom,$username, $ville, $email, $telephone, $hashedMdp);
 
 if ($statememnt->execute()) {
     echo "Le compte a été créé.";
