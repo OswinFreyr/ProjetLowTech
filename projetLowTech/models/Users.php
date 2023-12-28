@@ -23,6 +23,24 @@ class Benevole extends Visiteur {
         $this->adresse = $adresse;
         $this->telephone = $telephone;
         $this->ville = $ville;
+
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+        $query = "INSERT INTO benevoles (nom, prenom, mail, adresse, telephone, ville) VALUES (:nom, :prenom, :mail, :adresse, :telephone, :ville)";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':nom', $this->nom);
+        $statement->bindParam(':prenom', $this->prenom);
+        $statement->bindParam(':mail', $this->mail);
+        $statement->bindParam(':adresse', $this->adresse);
+        $statement->bindParam(':telephone', $this->telephone);
+        $statement->bindParam(':ville', $this->ville);
+        $result = $statement->execute();
+        if ($result) {
+            echo "Nouveau bénévole ajouté avec succès!";
+            // return $db->lastInsertId();
+        } else {
+            echo "Erreur lors de l'ajout du bénévole.";
+            // return null;
+        }
     }
 
     public function repondreAnnonce($annonce) {
