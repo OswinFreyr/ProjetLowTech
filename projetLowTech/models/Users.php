@@ -7,6 +7,7 @@ abstract class Visiteur {
 }
 
 class Benevole extends Visiteur {
+    private $id;
     private $nom;
     private $prenom;
     private $mail;
@@ -43,27 +44,69 @@ class Benevole extends Visiteur {
         }
     }
 
-    public function repondreAnnonce($annonce) {
-        if (!in_array($annonce, $this->reponses)) {
-            $this->reponses[] = $annonce;
-            $annonce->ajouterBenevoleReponse($this);
+    public function repondreAnnonce($annonceId) {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+        $query = "SELECT COUNT(*) FROM reponses_annonces WHERE id_benevole = :idBenevole AND id_annonce = :idAnnonce";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':idBenevole', $this->id); 
+        $statement->bindParam(':idAnnonce', $annonceId);
+        $statement->execute();
+        $result = $statement->fetchColumn();
+
+        if ($result === false) {
+            echo "erreur";
+            return;
+        }
+
+        if ($result > 0) {
+            echo "Vous avez déjà répondu à cette annonce";
         } else {
-            echo "Vous avez déjà répondu à cette annonce.";
+            $query = "INSERT INTO reponses_annonces (id_benevole, id_annonce) VALUES (:idBenevole, :idAnnonce)";
+            $statement = $db->prepare($query);
+            $statement->bindParam(':idBenevole', $this->id);
+            $statement->bindParam(':idAnnonce', $annonceId);
+            $result = $statement->execute();
+
+            if ($result) {
+                echo "Vous avez bien répondu à l'annonce.";
+            } else {
+                echo "erreur";
+            }
         }
     }
 
-    public function commenter($annonce, $commentaire) {
-        if (!isset($this->commentaires[$annonce])) {
-            $this->commentaires[$annonce] = []; 
+    public function commenter($annonceId, $commentaire) {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+
+        $query = "INSERT INTO commentaires_annonces (id_benevole, id_annonce, commentaire) VALUES (:idBenevole, :idAnnonce, :commentaire)";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':idBenevole', $this->id);
+        $statement->bindParam(':idAnnonce', $annonceId);
+        $statement->bindParam(':commentaire', $commentaire);
+        $result = $statement->execute();
+
+        if ($result) {
+            echo "Commentaire ajouté avec succès.";
+        } else {
+            echo "Erreur lors de l'ajout du commentaire.";
         }
-        $this->commentaires[$annonce][] = $commentaire;
     }
 
-    public function getCommentairesAnnonce($annonce) {
-        if (isset($this->commentaires[$annonce])) {
-            return $this->commentaires[$annonce];
+    public function getCommentairesAnnonce($annonceId) {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=dblowtech', 'root', '');
+
+        $query = "SELECT commentaire FROM commentaires_annonces WHERE id_benevole = :idBenevole AND id_annonce = :idAnnonce";
+        $statement = $db->prepare($query);
+        $statement->bindParam(':idBenevole', $this->id); // Supposons que vous avez un ID pour chaque bénévole
+        $statement->bindParam(':idAnnonce', $annonceId);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return array_column($result, 'commentaire');
+        } else {
+            return [];
         }
-        return [];
     }
 }
 

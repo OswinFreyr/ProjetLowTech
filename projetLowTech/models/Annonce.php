@@ -1,6 +1,7 @@
 <?php
 
 class Annonce {
+    private $id;
     private $titre;
     private $description;
     private $date;
