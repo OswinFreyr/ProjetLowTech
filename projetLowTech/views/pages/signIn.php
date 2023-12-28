@@ -24,6 +24,12 @@ $statememnt->bind_param("ssssss", $nom, $prenom, $ville, $email, $telephone, $ha
 
 if ($statememnt->execute()) {
     echo "Le compte a été créé.";
+    if(isset($_SERVER['HTTP_REFERER'])) {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    } else {
+        header('Location: home');
+    }
+    exit;
 } else {
     echo "Erreur : " . $connexion->error;
 }
