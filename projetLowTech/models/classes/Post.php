@@ -28,6 +28,10 @@ class Post {
         $statement = $pdo->prepare("UPDATE posts SET $detail = ? WHERE id = ?");
         $statement->execute([$value,$postId]);
     }
+
+    public function getDetail($detail){
+        return $this->$detail;
+    }
     public static function deletePost($postId, $pdo) {
         $statement = $pdo->prepare("DELETE FROM posts WHERE id = ?");
         $statement->execute([$postId]);

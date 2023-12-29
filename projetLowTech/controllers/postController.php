@@ -30,7 +30,8 @@ class PostController {
     public function deletePostCreated($postId, $moderatorId) {
         $pdo = dbConnect();
         $post = Post::getPostById($postId, $pdo);
-        if ($post && $post->user_id === $moderatorId) {
+        $user_id = $post->getDetail("user_id");
+        if ($post && $user_id === $moderatorId) {
             Post::deletePost($postId, $pdo);
             return "Le post a été supprimé avec succès.";
         } else {
