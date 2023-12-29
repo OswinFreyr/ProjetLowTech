@@ -17,6 +17,7 @@ class User {
         $this->name = $name;
         $this->firstname = $firstname;
         $this->city = $city;
+        $this->creationDate = new DateTime();
         $this->phone = $phone;
         $this->isMod = $isMod;
         $this->isAdmin = $isAdmin;
@@ -24,7 +25,7 @@ class User {
 
     public function saveUser(PDO $pdo) {
         $statement = $pdo->prepare("INSERT INTO users (username, password, name, firstname, city, creationDate, phone, isMod, isAdmin) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?)");
-        $statement->execute([$this->username, $this->password, $this->name, $this->firstname, $this->city,date('Y-m-d H:i:s'), $this->phone, $this->isMod, $this->isAdmin]);
+        $statement->execute([$this->username, $this->password, $this->name, $this->firstname, $this->city,$this->creationDate, $this->phone, $this->isMod, $this->isAdmin]);
     }
 
     public function getDetail($detail){
