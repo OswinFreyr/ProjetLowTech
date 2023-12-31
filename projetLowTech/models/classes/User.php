@@ -33,7 +33,7 @@ class User {
         return $this->$detail;
     }
 
-    public function setDetail($detail,$value,$userId){
+    public static function setDetail($detail,$value,$userId){
         $pdo = dbConnect();
         $statement = $pdo->prepare("UPDATE users SET $detail = ? WHERE id = ?");
         $statement->execute([$value,$userId]);

@@ -26,7 +26,7 @@ class Comment {
         return $this->$detail;
     }
 
-    public function setDetail($detail,$value,$commentId){
+    public static function setDetail($detail,$value,$commentId){
         $pdo = dbConnect();
         $statement = $pdo->prepare("UPDATE comments SET $detail = ? WHERE id = ?");
         $statement->execute([$value,$commentId]);

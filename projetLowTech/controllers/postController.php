@@ -17,8 +17,7 @@ class PostController {
         $user = User::getUserById($userId);
         $isMod = $user->getDetail("isMod");
         if ($user && $isMod) {
-            $post = Post::getPostById($postId);
-            $post->setDetail($detail,$value,$postId);
+            Post::setDetail($detail,$value,$postId);
             return "Votre annonce a été modifiée.";
         } else {
             return "Vous n'avez pas les autorisations nécessaires pour moodifier une annonce.";

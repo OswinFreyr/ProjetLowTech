@@ -11,7 +11,7 @@ class CommentController {
         $comment = Comment::getCommentById($commentId);
         $likes = $comment->getDetail("likes");
         $likes+=1;
-        $comment->setDetail("likes",$likes,$commentId);
+        Comment::setDetail("likes",$likes,$commentId);
         return "Liké";
     }
 

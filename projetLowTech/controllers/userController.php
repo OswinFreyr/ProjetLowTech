@@ -7,7 +7,7 @@ class userController {
                 $name = $user->getDetail("name");
                 $isMod = $user->getDetail("isMod");
                 if ($user && !$isMod) {
-                    $user->setDetail("isMod","true",$userId);
+                    User::setDetail("isMod","true",$userId);
                     return "$firstname $name est désormais modérateur/modératrice.";
                 } else {
                     return "$firstname $name est déjà modérateur/modératrice ou n'existe pas.";
@@ -26,7 +26,7 @@ class userController {
             $name = $user->getDetail("name");
             $isMod = $user->getDetail("isMod");
             if ($user && $isMod) {
-                $user->setDetail("isMod","false",$userId);
+                User::setDetail("isMod","false",$userId);
                 return "$firstname $name n'est plus modérateur/modératrice.";
             } else {
                 return "$firstname $name n'est pas modérateur/modératrice ou n'existe pas.";

@@ -25,7 +25,7 @@ class Post {
         $statement->execute([$this->title, $this->description, $this->date, $this->place, $this->users_id, $this->status, $this->createdAt]);
     }
 
-    public function setDetail($detail,$value,$postId){
+    public static function setDetail($detail,$value,$postId){
         $pdo = dbConnect();
         $statement = $pdo->prepare("UPDATE posts SET $detail = ? WHERE id = ?");
         $statement->execute([$value,$postId]);
