@@ -1,13 +1,12 @@
 <?php
 
 class PostController {
-    public function createPost($title,$description, $date,$place,$user_id,$status,$createdAt, $userId) {
-        $pdo = dbConnect();
-        $user = User::getUserById($userId, $pdo);
+    public function createPost($title,$description,$date,$place,$user_id,$status, $userId) {
+        $user = User::getUserById($userId);
         $isMod = $user->getDetail("isMod");
         if ($user && $isMod) {
-            $post = new Post($title,$description,$date,$place,$user_id,$status,$createdAt);
-            $post->savePost($pdo);
+            $post = new Post($title,$description,$date,$place,$user_id,$status);
+            $post->savePost();
             return "Votre annonce a été publiée.";
         } else {
             return "Vous n'avez pas les autorisations nécessaires pour créer une annonce.";
@@ -15,12 +14,11 @@ class PostController {
     }
 
     public function updatePost($detail,$value,$postId,$userId) {
-        $pdo = dbConnect();
-        $user = User::getUserById($userId, $pdo);
+        $user = User::getUserById($userId);
         $isMod = $user->getDetail("isMod");
         if ($user && $isMod) {
-            $post = Post::getPostById($postId,$pdo);
-            $post->setDetail($detail,$value,$pdo,$postId);
+            $post = Post::getPostById($postId);
+            $post->setDetail($detail,$value,$postId);
             return "Votre annonce a été modifiée.";
         } else {
             return "Vous n'avez pas les autorisations nécessaires pour moodifier une annonce.";
@@ -28,11 +26,10 @@ class PostController {
     }
 
     public function deletePostCreated($postId, $moderatorId) {
-        $pdo = dbConnect();
-        $post = Post::getPostById($postId, $pdo);
+        $post = Post::getPostById($postId);
         $user_id = $post->getDetail("user_id");
         if ($post && $user_id === $moderatorId) {
-            Post::deletePost($postId, $pdo);
+            Post::deletePost($postId);
             return "Le post a été supprimé avec succès.";
         } else {
             return "Vous n'avez pas les autorisations nécessaires pour supprimer ce post.";

@@ -8,16 +8,49 @@ class Comment {
     private $users_id;
     private $posts_id;
 
-    public function __construct($comment,$date,$likes,$users_id,$posts_id) {
+    public function __construct($comment,$likes,$users_id,$posts_id) {
         $this->comment = $comment;
-        $this->date = $date;
+        $this->date = new DateTime();
         $this->likes = $likes;
         $this->users_id = $users_id;
         $this->posts_id = $posts_id;
     }
 
-    public function saveComment(PDO $pdo) {
+    public function saveComment() {
+        $pdo = dbConnect();
         $statement = $pdo->prepare("INSERT INTO comments (comment,date,likes,users_id,posts_id) VALUES (?,?,?,?,?)");
         $statement->execute([$this->comment,$this->date,$this->likes,$this->users_id,$this->posts_id]);
+    }
+
+    public function getDetail($detail){
+        return $this->$detail;
+    }
+
+    public function setDetail($detail,$value,$commentId){
+        $pdo = dbConnect();
+        $statement = $pdo->prepare("UPDATE comments SET $detail = ? WHERE id = ?");
+        $statement->execute([$value,$commentId]);
+    }
+
+    public static function deleteComment($commentId) {
+        $pdo = dbConnect();
+        $statement = $pdo->prepare("DELETE FROM comment WHERE id = ?");
+        $statement->execute([$commentId]);
+    }
+
+    public static function getCommentById($commentId) {
+        $pdo = dbConnect();
+        $statement = $pdo->prepare("SELECT * FROM comments WHERE id = ?");
+        $statement->execute([$commentId]);
+        $comment = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($comment) {
+            return new self(
+                $comment['comment'],
+                $comment['likes'],
+                $comment['users_id'],
+                $comment['posts_id']
+            );
+        }
+        return null; 
     }
 }

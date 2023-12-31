@@ -23,7 +23,8 @@ class User {
         $this->isAdmin = $isAdmin;
     }
 
-    public function saveUser(PDO $pdo) {
+    public function saveUser() {
+        $pdo = dbConnect();
         $statement = $pdo->prepare("INSERT INTO users (username, password, name, firstname, city, creationDate, phone, isMod, isAdmin) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?)");
         $statement->execute([$this->username, $this->password, $this->name, $this->firstname, $this->city,$this->creationDate, $this->phone, $this->isMod, $this->isAdmin]);
     }
@@ -32,12 +33,14 @@ class User {
         return $this->$detail;
     }
 
-    public function setDetail($detail,$value,$pdo,$userId){
+    public function setDetail($detail,$value,$userId){
+        $pdo = dbConnect();
         $statement = $pdo->prepare("UPDATE users SET $detail = ? WHERE id = ?");
         $statement->execute([$value,$userId]);
     }
 
-    public static function getUserById($userId, PDO $pdo) {
+    public static function getUserById($userId) {
+        $pdo = dbConnect();
         $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->execute([$userId]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
