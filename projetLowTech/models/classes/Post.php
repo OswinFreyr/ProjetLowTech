@@ -9,12 +9,12 @@ class Post {
     private $status;
     private $createdAt;
 
-    public function __construct($title,$description,$date,$place,$user_id,$status) {
+    public function __construct($title,$description,$date,$place,$users_id,$status) {
         $this->title = $title;
         $this->description = $description;
         $this->date = $date;
         $this->place = $place;
-        $this->users_id = $user_id;
+        $this->users_id = $users_id;
         $this->status = $status;
         $this->createdAt = new DateTime();
     }
