@@ -8,10 +8,10 @@ class Comment {
     private $users_id;
     private $posts_id;
 
-    public function __construct($comment,$likes,$users_id,$posts_id) {
+    public function __construct($comment,$users_id,$posts_id) {
         $this->comment = $comment;
         $this->date = new DateTime();
-        $this->likes = $likes;
+        $this->likes = 0;
         $this->users_id = $users_id;
         $this->posts_id = $posts_id;
     }
@@ -46,7 +46,6 @@ class Comment {
         if ($comment) {
             return new self(
                 $comment['comment'],
-                $comment['likes'],
                 $comment['users_id'],
                 $comment['posts_id']
             );

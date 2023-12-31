@@ -1,8 +1,8 @@
 <?php
 
 class CommentController {
-    public function addComment($comment,$likes,$users_id,$posts_id) {
-        $comment = new Comment($comment,$likes,$users_id,$posts_id);
+    public function addComment($comment,$users_id,$posts_id) {
+        $comment = new Comment($comment,$users_id,$posts_id);
         $comment->saveComment();
         return "Votre commentaire a bien été enregistré";
     }
