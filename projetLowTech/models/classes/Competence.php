@@ -16,7 +16,7 @@ class Competence {
 
     public static function deleteCompetence($name) {
         $pdo = dbConnect();
-        $statement = $pdo->prepare("DELETE FROM posts WHERE id = ?");
+        $statement = $pdo->prepare("DELETE FROM competences WHERE name = ?");
         $statement->execute([$name]);
     }
 }
