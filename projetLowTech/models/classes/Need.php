@@ -8,8 +8,15 @@ class Need {
         $this->name = $name;
     }
 
-    public function saveNeed(PDO $pdo) {
+    public function saveNeed() {
+        $pdo = dbConnect();
         $statement = $pdo->prepare("INSERT INTO needs (name) VALUES (?)");
         $statement->execute([$this->name]);
+    }
+
+    public static function deleteNeed($name) {
+        $pdo = dbConnect();
+        $statement = $pdo->prepare("DELETE FROM needs WHERE name = ?");
+        $statement->execute([$name]);
     }
 }
