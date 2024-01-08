@@ -1,5 +1,7 @@
 <?php
 
+require_once './config/database.php';
+
 class CompetenceManager {
 
     public function addCompetence ($userId,$name){

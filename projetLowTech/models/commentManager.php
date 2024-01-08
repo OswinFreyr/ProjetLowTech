@@ -1,5 +1,7 @@
 <?php
 
+require_once './config/database.php';
+
 class commentManager {
     public function addComment($comment,$users_id,$posts_id) {
         $comment = new Comment($comment,$users_id,$posts_id);
