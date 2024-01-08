@@ -39,15 +39,16 @@ class userController {
         }
     }
 
-    function addUser($username,$password,$name,$firstname,$city,$creationDate,$phone,$isMod,$isAdmin): void {
+    function addUser($username,$password,$name,$firstname,$mail,$city,$creationDate,$phone,$isMod,$isAdmin): void {
         //$created_date = date_format(new DateTime('NOW'), 'Y-m-d H:i:s');
-        $sql = "INSERT INTO users (username,password,name,firstname,city,creationDate,phone,isMod,isAdmin) VALUES (:username,:password,:name,:firstname,:city,:creationDate,:phone,:isMod,:isAdmin)";
+        $sql = "INSERT INTO users (username,password,name,firstname,mail,city,creationDate,phone,isMod,isAdmin) VALUES (:username,:password,:name,:firstname,:mail,:city,:creationDate,:phone,:isMod,:isAdmin)";
         $query = dbConnect()->prepare($sql);
         $query->execute([
             ':username' => $username,
             ':password' => $password,
             ':name' => $name,
             ':firstname' => $firstname,
+            ':mail'=> $mail,
             ':city' => $city,
             ':creationDate' => $creationDate,
             ':phone' => $phone,

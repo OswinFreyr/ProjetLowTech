@@ -10,8 +10,8 @@ $motDePasse = $_POST['motdepasse'];
 $hashedMdp = password_hash($motdepasse, PASSWORD_DEFAULT);
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username_db = "root";
+$password_db = "";
 $dbname = "dblowtech";
 
 $connexion = new mysqli($servername, $username, $password, $dbname);
@@ -20,8 +20,8 @@ if ($connexion->connect_error) {
     die("Connexion échouée: " . $connexion->connect_error);
 }
 
-$statememnt = $connexion->prepare("INSERT INTO users (nom, prenom,username, ville, email, telephone, motdepasse) VALUES (?, ?, ?, ?, ?, ?)");
-$statememnt->bind_param("ssssss", $nom, $prenom,$username, $ville, $email, $telephone, $hashedMdp);
+$statememnt = $connexion->prepare("INSERT INTO users (username, password,name, firstname, city, creationDate, phone,isMod,isAdmin) VALUES (?, ?, ?, ?, ?, ?)");
+$statememnt->bind_param("ssssss", $username, $hashedMdp,$name, $firstname, $city, $creationDate,$phone,$isMod,$isAdmin );
 
 if ($statememnt->execute()) {
     echo "Le compte a été créé.";
