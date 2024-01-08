@@ -35,4 +35,53 @@ class postManager {
             return "Vous n'avez pas les autorisations nécessaires pour supprimer ce post.";
         }
     }
+
+    public static function getAllPosts(): array{
+        $sql = "SELECT * FROM posts ORDER BY id ASC";
+        $query = dbConnect()->prepare($sql);
+        $query->execute();
+        $posts = $query->fetchAll();
+        return $posts;
+    }
+
+    public static function getPost($title): array {
+        $sql = "SELECT * FROM posts WHERE title = :title";
+        $query = dbConnect()->prepare($sql);
+        $query->execute([
+            ':title' => $title
+        ]);
+        $post = $query->fetchAll();
+        return $post;
+    }
+
+    public static function getPostByID($id): array {
+        $sql = "SELECT * FROM posts WHERE id = :id";
+        $query = dbConnect()->prepare($sql);
+        $query->execute([
+            ':id' => $id
+        ]);
+        $post = $query->fetchAll();
+        return $post;
+    }
+
+    public static function getCommentsOnPost($postId): array{
+        $sql = "SELECT *, users.name, users.username FROM comments INNER JOIN posts ON comments.posts_id = posts.$postId INNER JOIN users ON comments.users_id = users.id";
+        $query = dbConnect()->prepare($sql);
+        $query->execute();
+        $comments = $query->fetchAll();
+        return $comments;
+    }
+
+    public static function getNeeds($postId): array{
+        $sql = "SELECT * FROM posts_needs ORDER BY id ASC WHERE posts_id = $postId";
+        $query = dbConnect()->prepare($sql);
+        $query->execute();
+        $list = $query->fetchAll();
+        $listId = $list['id'];
+        $sql2 = "SELECT * FROM needs ORDER BY id ASC WHERE $listId = id";
+        $query2 = dbConnect()->prepare($sql2);
+        $query2->execute();
+        $needs = $query2->fetchAll();
+        return $needs;
+    }
 }
