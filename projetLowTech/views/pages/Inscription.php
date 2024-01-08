@@ -1,10 +1,14 @@
 <?php
-$nom = $_POST['nom'];
-$prenom = $_POST['prenom'];
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$name = $_POST['nom'];
+$firstname = $_POST['prenom'];
 $ville = $_POST['ville'];
 $username = $_POST['username'];
 $mail = $_POST['email'];
-$telephone = $_POST['telephone'];
+$phone = $_POST['telephone'];
 $motDePasse = $_POST['motdepasse'];
 
 $hashedMdp = password_hash($motdepasse, PASSWORD_DEFAULT);
@@ -20,8 +24,8 @@ if ($connexion->connect_error) {
     die("Connexion échouée: " . $connexion->connect_error);
 }
 
-$statememnt = $connexion->prepare("INSERT INTO users (username, password,name, firstname, city, creationDate, phone,isMod,isAdmin) VALUES (?, ?, ?, ?, ?, ?)");
-$statememnt->bind_param("ssssss", $username, $hashedMdp,$name, $firstname, $city, $creationDate,$phone,$isMod,$isAdmin );
+$statememnt = $connexion->prepare("INSERT INTO users (username, password,name, firstname,mail, city, creationDate, phone,isMod,isAdmin) VALUES (?, ?,?, ?, ?, ?, ?)");
+$statememnt->bind_param("ssssss", $username, $hashedMdp,$name, $firstname,$mail, $city, $creationDate,$phone,$isMod,$isAdmin );
 
 if ($statememnt->execute()) {
     echo "Le compte a été créé.";
@@ -37,6 +41,7 @@ if ($statememnt->execute()) {
 
 $statememnt->close();
 $connexion->close();
+}
 ?>
 
 

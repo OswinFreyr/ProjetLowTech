@@ -21,8 +21,8 @@ class User {
         $this->city = $city;
         $this->creationDate = new DateTime();
         $this->phone = $phone;
-        $this->isMod = $isMod;
-        $this->isAdmin = $isAdmin;
+        $this->isMod = false;
+        $this->isAdmin = false;
     } 
 
     public function saveUser() {
