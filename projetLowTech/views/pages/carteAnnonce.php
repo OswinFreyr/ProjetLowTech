@@ -1,13 +1,16 @@
 <div>
     <div>
+        <div>
+            <?= $post['status'] ?>
+        </div>
         <img src="" alt="">
     </div>
     <div>
         <div>
-            Titre
+            <?= $post['title'] ?>
         </div>
         <div>
-            Description
+            <?= $post['description'] ?>
         </div>
     </div>
     <div>
@@ -15,18 +18,32 @@
     </div>
     <div>
         <ul>
-            liste des besoins
+            <?php foreach($competences as $competence) { ?>
+            <li>
+                <?= $needs['name'] ?>
+            </li>
+            <?php } ?>
         </ul>
     </div>
     <div>
-        Commentaires
+        <?php foreach($comments as $comment) { ?>
+            <div>
+                <?= $comment['users.name'] . " (" . $comment['users.username'] . ") - " . $comment['date'] ?>
+            </div>
+            <div>
+                <?= $comment['content'] ?>
+            </div>
+            <div>
+                <?= $comment['nb_likes'] ?>
+            </div>
+        <?php } ?>
     </div>
     <div>
         <div>
-            Ville
+            <?= $post['place'] ?>
         </div>
         <div>
-            nbAimes
+            <?= $post['date'] ?>
         </div>
     </div>
 </div>
