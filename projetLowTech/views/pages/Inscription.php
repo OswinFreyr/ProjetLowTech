@@ -45,22 +45,28 @@ $connexion->close();
 ?>
 
 
-
+<script src="projetLowTech\views\scripts\inscription.js" defer></script>
 <form id="signupForm" action="process.php" method="post">
     <div id="step1">
         <h2>Informations personnelles</h2>
-        Nom: <input type="text" id="nom" required><br><br>
-        Prénom: <input type="text" id="prenom" required><br><br>
-        Ville: <input type="text" id="ville" required><br><br>
-        <button onclick="nextStep()">Suivant</button>
+        Nom: <input type="text" name="nom" required><br><br>
+        Prénom: <input type="text" name="prenom" required><br><br>
+        Ville: <input type="text" name="ville" required><br><br>
+        <div class="boutons">
+            <button onclick="nextStep()">Suivant</button>
+        </div>
     </div>
 
     <div id="step2" style="display: none;">
         <h2>Informations de contact</h2>
-        Email: <input type="email" id="email" required><br><br>
-        Téléphone: <input type="tel" id="telephone" required><br><br>
-        Mot de passe: <input type="password" id="motdepasse" required><br><br>
-        <button onclick="submitForm()">Créer le compte</button>
+        Email: <input type="email" name="email" required><br><br>
+        Téléphone: <input type="tel" name="telephone" required><br><br>
+        Mot de passe: <input type="password" name="motdepasse" required><br><br>
+        <div class="boutons">
+            <button onclick="previousStep()">Précédent</button>
+            <button onclick="nextStep()">Suivant</button>
+        </div>
+        
     </div>
 
     <div id="step3" style="display: none;">
@@ -71,5 +77,24 @@ $connexion->close();
 
         <input type="checkbox" id="competence2" name="competence[]" value="Compétence 2">
         <label for="competence2">Compétence 2</label><br>
+        <button onclick="previousStep()">Précédent</button>
+        <input type="submit" value="Créer mon compte">
     </div>
 </form>
+
+<script>
+    let steps = ["step1", "step2", "step3"];
+    let compteur = 0;
+
+    function nextStep() {
+        document.querySelector("#" + steps[compteur]).style.display = 'none';
+        document.querySelector("#" + steps[compteur + 1]).style.display = 'block';
+        i++;
+    }
+
+    function previousStep() {
+        document.querySelector("#" + steps[compteur]).style.display = 'none';
+        document.querySelector("#" + steps[compteur - 1]).style.display = 'block';
+        i--;
+    }
+</script>
