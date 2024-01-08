@@ -40,15 +40,6 @@ $connexion->close();
 ?>
 
 
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Sign In</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="./scripts/signIn.js"></script>
-</head>
-<body>
 
 <form id="signupForm" action="process.php" method="post">
     <div id="step1">
@@ -77,5 +68,3 @@ $connexion->close();
         <label for="competence2">Compétence 2</label><br>
     </div>
 </form>
-</body>
-</html>

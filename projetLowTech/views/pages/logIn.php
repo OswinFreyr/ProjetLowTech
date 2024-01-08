@@ -14,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connexion échouée: " . $connexion->connect_error);
     }
 
-    $statement = $connexion->prepare("SELECT id, motdepasse FROM utilisateurs WHERE email = ?");
+    $statement = $connexion->prepare("SELECT id, password FROM users WHERE email = ?");
     $statement->bind_param("s", $email);
     $statement->execute();
     $result = $statement->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $hashedPassword = $row['motdepasse'];
+        $hashedPassword = $row['password'];
         if (password_verify($password, $hashedPassword)) {
             echo "Connexion réussie ";
             if(isset($_SERVER['HTTP_REFERER'])) {
@@ -43,25 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Log In</title>
-</head>
-<body>
-
 <h2>Connexion</h2>
-
-
-
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     Email: <input type="text" name="email"><br><br>
     Mot de passe: <input type="password" name="password"><br><br>
     <input type="submit" value="Se connecter">
 </form>
 
-</body>
-</html>
+
