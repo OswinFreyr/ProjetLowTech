@@ -12,7 +12,7 @@
 <div class="project">
     <img>
     <div>
-        <h2>QNotre projet</h2>
+        <h2>Notre projet</h2>
         <p>fojopefjpoqjofjqopjfopsopfjseopfjsopejfops</p>
     </div>
 </div>
