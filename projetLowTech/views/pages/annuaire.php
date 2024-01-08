@@ -1,6 +1,6 @@
 <div>
     <div>
-        <input type="text">
+        <input type="text" method="_GET" name="search">
     </div>
     <div>
         <?php foreach($users as $user) { ?>
