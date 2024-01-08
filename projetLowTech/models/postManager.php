@@ -1,5 +1,6 @@
 <?php
 
+require_once './config/database.php';
 
 class postManager {
     public function createPost($title,$description,$date,$place,$user_id,$status, $userId) {

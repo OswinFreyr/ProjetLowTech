@@ -1,5 +1,6 @@
 <?php
 
+require_once './config/database.php';
 
 class userController {
     public function passModerator($userId, $isAdmin) {
@@ -15,7 +16,7 @@ class userController {
                 return "$firstname $name est déjà modérateur/modératrice ou n'existe pas.";
             }
         }
-         else {
+        else {
             return "Vous n'avez pas les autorisations nécessaires pour créer un modérateur.";
         }
     }

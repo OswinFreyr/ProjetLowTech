@@ -1,5 +1,7 @@
 <?php
 
+require_once './config/database.php';
+
 class ProfilManager{
     public static function getAllProfiles(): array {
         $sql = "SELECT * FROM users ORDER BY id ASC";

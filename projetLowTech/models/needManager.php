@@ -1,5 +1,7 @@
 <?php
 
+require_once './config/database.php';
+
 class needManager {
 
     public function addNeed ($userId,$name){
