@@ -1,6 +1,6 @@
 <?php
 
-class competenceManager {
+class CompetenceManager {
 
     public function addCompetence ($userId,$name){
         $user = User::getUserById($userId);

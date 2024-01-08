@@ -6,7 +6,7 @@ $template = './views/pages/annuaire.php';
 
 
 if(empty($_GET)){
-    $users = Profil::getAllProfiles();
+    $users = ProfilManager::getAllProfiles();
 }else if(!empty($_GET)){
-    $users = Profil::getProfile($_GET['search']);
+    $users = ProfilManager::getProfile($_GET['search']);
 }
