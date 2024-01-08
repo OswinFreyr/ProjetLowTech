@@ -43,25 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Log In</title>
-</head>
-<body>
-
 <h2>Connexion</h2>
-
-
-
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     Email: <input type="text" name="email"><br><br>
     Mot de passe: <input type="password" name="password"><br><br>
     <input type="submit" value="Se connecter">
 </form>
 
-</body>
-</html>
+
