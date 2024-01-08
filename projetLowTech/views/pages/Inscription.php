@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $name = $_POST['name'];
 $firstname = $_POST['firstname'];
-$ville = $_POST['city'];
+$city = $_POST['city'];
 $username = $_POST['username'];
 $mail = $_POST['mail'];
 $phone = $_POST['phone'];
@@ -24,8 +24,8 @@ if ($connexion->connect_error) {
     die("Connexion échouée: " . $connexion->connect_error);
 }
 
-$statememnt = $connexion->prepare("INSERT INTO users (username, password,name, firstname,mail, city, creationDate, phone,isMod,isAdmin) VALUES (?, ?,?, ?, ?,?,?,?, false,false)");
-$statememnt->bind_param( "ssssssss",$username, $hashedMdp,$name, $firstname,$mail, $city, $creationDate,$phone);
+$statememnt = $connexion->prepare("INSERT INTO users (username, password,name, firstname,mail, city, creationDate, phone,isMod,isAdmin) VALUES (?, ?,?, ?, ?,?,NOW(),?, false,false)");
+$statememnt->bind_param( "sssssss",$username, $hashedMdp,$name, $firstname,$mail, $city,$phone);
 
 if ($statememnt->execute()) {
     echo "Le compte a été créé.";
@@ -78,7 +78,7 @@ $connexion->close();
 
         <input type="checkbox" id="competence2" name="competence[]" value="Compétence 2">
         <label for="competence2">Compétence 2</label><br>
-        <!-- <button onclick="previousStep()">Précédent</button> -->
+        <button onclick="previousStep()">Précédent</button>
         <input type="submit" value="Créer mon compte">
     </div>
 </form>
