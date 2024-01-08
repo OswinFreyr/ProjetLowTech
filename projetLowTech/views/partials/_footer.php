@@ -26,4 +26,4 @@
             <p>2023 | Efrei B2 Dev</p>
         </div>
     </div>
-</footer>
+</footer> 

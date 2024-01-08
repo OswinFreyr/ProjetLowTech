@@ -4,13 +4,13 @@
         <li id="nomEntreprise"> <a href="#">LowTech Bordeaux</a> </li>
     </ul>
     <ul>
-        <li id="partenaires"> <a href="">Partenaires</a> </li>
-        <li id="annonces"> <a href="">Annonces</a> </li>
-        <li id="benevoles"> <a href="">Bénévoles</a> </li>
+        <li id="partenaires"> <a href="index.php?page=partenaires">Partenaires</a> </li>
+        <li id="annonces"> <a href="index.php?page=annonces">Annonces</a> </li>
+        <li id="benevoles"> <a href="index.php?page=annuaire">Bénévoles</a> </li>
         <li id="connexion"> 
-            <a href="">Se connecter</a>
-            <a href="">S'inscrire</a>
-            <a href="">Mon compte</a>
+            <a href="index.php?page=connexion">Se connecter</a>
+            <a href="index.php?page=inscription">S'inscrire</a>
+            <a href="index.php?page=profil">Mon compte</a>
             <!-- <form method="POST">  A METTRE SUR LA PAGE D'INSCRIPTION
                 <label for="name">Nom :</label><br>
                 <input type="text" id="name" name="name" required><br>
