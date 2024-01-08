@@ -1,12 +1,12 @@
 <?php
 
-require_once('./models/annuaireManager.php');
+require_once('./models/profilManager.php');
 
 $template = './views/pages/annuaire.php';
 
 
 if(empty($_GET)){
-    Annuaire::getAllProfiles();
+    $users = Profil::getAllProfiles();
 }else if(!empty($_GET)){
-    Annuaire::getProfile($_GET['search']);
+    $users = Profil::getProfile($_GET['search']);
 }

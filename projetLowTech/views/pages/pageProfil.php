@@ -1,4 +1,7 @@
 <div>
+    MENU (afaire)
+</div>
+<div>
     <div>
         <img src="" alt="">
     </div>
@@ -14,11 +17,6 @@
         </ul>
     </div>
     <div>
-        <div>
-            <?= $user['city'] ?>
-        </div>
-        <div>
-            <button><a href="">Voir profil</a></button>
-        </div>
+        <?= $user['city'] ?>
     </div>
 </div>

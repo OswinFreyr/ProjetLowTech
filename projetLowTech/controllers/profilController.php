@@ -1,7 +1,7 @@
 <?php
 
-class profilController{
-    public function getInfos(){
-        
-    }
-}
+require_once('./models/profilManager.php');
+
+$template = './views/pageProfil.php';
+
+$user = Profil::getProfileByID($id);
