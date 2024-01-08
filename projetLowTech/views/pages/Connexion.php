@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $mail = $_POST['mail'];
     $password = $_POST['password'];
 
     $servername = "localhost";
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $statement = $connexion->prepare("SELECT id, password FROM users WHERE email = ?");
-    $statement->bind_param("s", $email);
+    $statement->bind_param("s", $mail);
     $statement->execute();
     $result = $statement->get_result();
 
