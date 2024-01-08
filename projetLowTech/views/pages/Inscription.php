@@ -82,6 +82,10 @@ $connexion->close();
         <input type="submit" value="Créer mon compte">
     </div>
 </form>
+<div class="btnVersInscription">
+    <h2>Vous possédez déjà un compte ? </h2>
+    <a href="index.php?page=inscription">Se connecter</a>
+</div>
 
 <script>
     let steps = ["step1", "step2", "step3"];

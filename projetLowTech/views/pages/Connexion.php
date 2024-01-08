@@ -45,9 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Connexion</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    Email: <input type="text" name="email"><br><br>
+    Email: <input type="text" name="mail"><br><br>
     Mot de passe: <input type="password" name="password"><br><br>
     <input type="submit" value="Se connecter">
 </form>
+<div class="btnVersInscription">
+    <h2>Vous ne possédez pas de compte ? </h2>
+    <a href="index.php?page=inscription">Créer un compte</a>
+</div>
+
 
 

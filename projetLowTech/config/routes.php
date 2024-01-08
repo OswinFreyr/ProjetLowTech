@@ -3,7 +3,7 @@
 const AVAILABLE_ROUTES = [
     'home' => 'homeController.php',
     'partenaires' => 'partenairesController.php',
-    'annonces' => 'annoncesController.php',
+    'annonces' => 'postController.php',
     'connexion'=>'connexionController.php',
     'inscription' => 'inscriptionController.php',
     'profil' => 'profilController.php',
