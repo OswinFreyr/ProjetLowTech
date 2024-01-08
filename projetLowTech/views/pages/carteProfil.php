@@ -10,7 +10,11 @@
     </div>
     <div>
         <ul>
-            liste des compétences
+            <?php foreach($competences as $competence) { ?>
+            <li>
+                <?= $competence['name'] ?>
+            </li>
+            <?php } ?>
         </ul>
     </div>
     <div>
