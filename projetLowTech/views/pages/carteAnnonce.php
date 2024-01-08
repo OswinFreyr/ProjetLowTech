@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <img src="" alt="">
+    </div>
+    <div>
+        <div>
+            Titre
+        </div>
+        <div>
+            Description
+        </div>
+    </div>
+    <div>
+        NomUtilisateurCréateur
+    </div>
+    <div>
+        <ul>
+            liste des besoins
+        </ul>
+    </div>
+    <div>
+        Commentaires
+    </div>
+    <div>
+        <div>
+            Ville
+        </div>
+        <div>
+            nbAimes
+        </div>
+    </div>
+</div>
