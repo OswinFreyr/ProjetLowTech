@@ -1,6 +1,9 @@
 <div>
     <div>
-        <input type="text" method="_GET" name="search">
+        <form action="" method="get" name="search">
+            <input type="text">
+            <button type="submit" value="Rechercher">
+        </form>
     </div>
     <div>
         <?php foreach($users as $user) { ?>
