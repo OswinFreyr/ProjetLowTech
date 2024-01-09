@@ -1,7 +1,7 @@
 <div>
     <div>
-        <form action="" method="get" name="search">
-            <input type="text">
+        <form action="" method="get">
+            <input type="text" name="search">
             <button type="submit" value="Rechercher">
         </form>
     </div>
