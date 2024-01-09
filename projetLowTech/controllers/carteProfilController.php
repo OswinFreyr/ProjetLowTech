@@ -2,6 +2,6 @@
 
 require_once('./models/profilManager.php');
 
-$template = './views/carteProfil.php';
+$template = './views/partials/carteProfil.php';
 
 $user = ProfilManager::getProfileByID($id);

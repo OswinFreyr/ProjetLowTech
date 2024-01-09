@@ -18,9 +18,9 @@
     </div>
     <div>
         <ul>
-            <?php foreach($competences as $competence) { ?>
+            <?php foreach($needs as $need) { ?>
             <li>
-                <?= $needs['name'] ?>
+                <?= $need['name'] ?>
             </li>
             <?php } ?>
         </ul>
