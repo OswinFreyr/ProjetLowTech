@@ -9,7 +9,7 @@
                     $needs = $needsPerPosts[$post['id']]; 
                     $comments = $commentsPerPosts[$posts['id']];
                 ?>
-                <?= require './views/partials/carteAnnonce.php';?>
+                <?= require './views/partials/cartePost.php';?>
             </div>
         <?php } ?>
     </div>
