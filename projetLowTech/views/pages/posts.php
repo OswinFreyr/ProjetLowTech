@@ -2,7 +2,7 @@
     <div>
         <form action="" method="get">
             <label for="search"></label>
-            <input type="text" name="search">
+            <input type="text" name="search" id="search">
             <button type="submit" value="Rechercher">
         </form>
     </div>
