@@ -25,6 +25,7 @@
             <?php } ?>
         </ul>
     </div>
+    <?php if(isset($comments)) { ?>
     <div>
         <?php foreach($comments as $comment) { ?>
             <div>
@@ -38,6 +39,11 @@
             </div>
         <?php } ?>
     </div>
+    <?php } else { ?>
+    <div>
+        <p>Pas encore de commentaires.</p>
+    </div>
+    <?php } ?>
     <div>
         <div>
             <?= $post['place'] ?>
