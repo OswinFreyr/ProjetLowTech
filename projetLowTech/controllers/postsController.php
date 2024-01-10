@@ -2,7 +2,7 @@
 
 require_once('./models/postManager.php');
 
-$template = './views/posts.php';
+$template = './views/pages/posts.php';
 
 $needsPerPost = array();
 $commentsPerPost = array();
