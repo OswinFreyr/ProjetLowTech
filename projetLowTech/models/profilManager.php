@@ -31,7 +31,7 @@ class ProfilManager{
     }
 
     public static function getCompetences($userId): array{
-        $sql = "SELECT * FROM users_competences ORDER BY id ASC WHERE user_id = $userId";
+        $sql = "SELECT * FROM users_competences ORDER BY id ASC WHERE users_id = $userId";
         $query = dbConnect()->prepare($sql);
         $query->execute();
         $list = $query->fetchAll();
