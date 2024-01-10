@@ -1,5 +1,5 @@
 <?php
-
+// fichier non utilisé mais gardé dans le cas d'une poursuite de projet 
 class Competence {
     private $id;
     private $name;

@@ -8,10 +8,6 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pseudo = $_POST['pseudo'];
     $password = $_POST['password'];
-    // var_dump($pseudo);
-    // var_dump($hashedMdp);
-
-
 
     $statement = dbConnect()->prepare("SELECT id,password FROM users WHERE username ='$pseudo'");
     $statement->execute();
@@ -37,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     } else {
 
-           $message ="Vous ne possédez pas de compte";
+            $message ="Vous ne possédez pas de compte";
             
         
     }
