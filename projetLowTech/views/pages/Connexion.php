@@ -1,6 +1,8 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $mail = $_POST['mail'];
+    $pseudo = $_POST['pseudo'];
     $password = $_POST['password'];
 
     $servername = "localhost";
@@ -10,12 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $connexion = new mysqli($servername, $username, $password_db, $dbname);
 
+    $sql = "SELECT id FROM users WHERE username = '$pseudo'";
+    $recupPseudo = $connexion->query($sql);
+
     if ($connexion->connect_error) {
         die("Connexion échouée: " . $connexion->connect_error);
     }
 
-    $statement = $connexion->prepare("SELECT id, password FROM users WHERE email = ?");
-    $statement->bind_param("s", $mail);
+    $statement = $connexion->prepare("SELECT id, password FROM users WHERE username = ?");
+    $statement->bind_param("s", $pseudo);
     $statement->execute();
     $result = $statement->get_result();
 
@@ -24,11 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = $row['password'];
         if (password_verify($password, $hashedPassword)) {
             echo "Connexion réussie ";
-            if(isset($_SERVER['HTTP_REFERER'])) {
-                header('Location: ' . $_SERVER['HTTP_REFERER']);
-            } else {
-                header('Location: home');
-            }
+            $row = $recupPseudo->fetch_assoc();
+            $_SESSION['idUser'] = $row['id'];
+            header("Location: index.php?page=profil"); 
+
             exit;
         } else {
             echo "Mot de passe invalide.";
@@ -45,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Connexion</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    Pseudo : <input type="text" name="mail"><br><br>
+    Pseudo : <input type="text" name="pseudo"><br><br>
     Mot de passe : <input type="password" name="password"><br><br>
     <input type="submit" value="Se connecter">
 </form>

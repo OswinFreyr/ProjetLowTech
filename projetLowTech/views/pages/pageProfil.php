@@ -1,10 +1,17 @@
 <?php
-// session_start();
 
-// if (!isset($_SESSION['utilisateur_connecte'])) {
-//     header("Location: Connexion.php");
-//     exit();
-// }
+session_start();
+
+if (isset($_SESSION['idUser'])) {
+    var_dump($_SESSION['idUser']);
+    echo "Bonjour, ".$_SESSION['idUser']."!";
+} else {
+    header("Location: index.php?page=connexion"); 
+    var_dump("hiuhiuhu");
+    exit();
+}
+require_once 'projetLowTech\controllers\profilController.php';
+
 ?>
 
 <div>
@@ -18,7 +25,7 @@
         <?= $user['name'] . " " . $user['firstname']?>
     </div>
     <div>
-        <?= $user['useranme'] ?>
+        <?= $user['username'] ?>
     </div>
     <div>
         <ul>

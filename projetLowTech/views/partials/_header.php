@@ -1,17 +1,7 @@
-<?php
-$utilisateurConnecte = false; 
 
-if (isset($_SESSION['utilisateur'])) {
-    $utilisateurConnecte = true;
-}
 
-if ($utilisateurConnecte) {
-    echo '<a href="index.php?page=profil">Profil</a>';
-} else {
-    echo '<a href="index.php?page=connexion">Profil</a>';
-}
 
-?>
+
 
 
 
@@ -27,7 +17,7 @@ if ($utilisateurConnecte) {
         <li id="connexion"> 
             <a href="index.php?page=connexion">Se connecter</a>
             <a href="index.php?page=inscription">S'inscrire</a>
-            <!-- <a href="index.php?page=profil">Mon compte</a> -->
+            <a href="index.php?page=profil">Mon compte</a>
             <!-- <form method="POST">  A METTRE SUR LA PAGE D'INSCRIPTION
                 <label for="name">Nom :</label><br>
                 <input type="text" id="name" name="name" required><br>
