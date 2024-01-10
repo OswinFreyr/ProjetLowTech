@@ -34,7 +34,7 @@
         <input type="checkbox" id="competence2" name="competence[]" value="Compétence 2">
         <label for="competence2">Compétence 2</label><br>
         <button onclick="previousStep()">Précédent</button>
-        <button type="submit" value="Créer mon compte">
+        <input type="submit" value="Créer mon compte">
     </div>
 </form>
 <div class="btnVersInscription">
