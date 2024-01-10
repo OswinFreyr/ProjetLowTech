@@ -1,7 +1,7 @@
 <header>
     <ul>
         <li id="logo"> <img src="" alt="logo LowTech"> </li>
-        <li id="nomEntreprise"> <a href="#">LowTech Bordeaux</a> </li>
+        <li id="nomEntreprise"> <a href="index.php?page=home">LowTech Bordeaux</a> </li>
     </ul>
     <ul>
         <li id="partenaires"> <a href="index.php?page=partenaires">Partenaires</a> </li>
