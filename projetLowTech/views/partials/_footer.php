@@ -19,7 +19,7 @@
     </div>
     <div id="footer_droit">
         <ul>
-            <li id="logo"> <img src="./partials/assets/LogoLTB.png" alt="logo LowTech"> </li>
+            <li id="logo"> <img src="./assets/LogoLTB.png" alt="logo LowTech"> </li>
             <li id="nomEntreprise"> <a href="#">LowTech Bordeaux</a> </li>
         </ul>
         <div>

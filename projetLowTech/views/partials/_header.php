@@ -1,6 +1,6 @@
 <header>
     <ul id="gauche">
-        <li id="logo"> <img src="./partials/assets/LogoLTB.png" alt="logo LowTech"> </li>
+        <li id="logo"> <img src="./assets/LogoLTB.png" alt="logo LowTech"> </li>
         <li id="nomEntreprise"> <a href="index.php?page=home">LowTech Bordeaux</a> </li>
     </ul>
     <ul id="droite">
