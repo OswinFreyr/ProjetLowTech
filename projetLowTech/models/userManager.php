@@ -1,6 +1,6 @@
 <?php
 
-require_once './config/database.php';
+require_once './models/connection.php';
 
 class userController {
     public function passModerator($userId, $isAdmin) {

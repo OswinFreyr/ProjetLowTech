@@ -1,6 +1,6 @@
 <?php
 
-require_once './config/database.php';
+require_once './models/connection.php';
 
 class commentManager {
     public function addComment($comment,$users_id,$posts_id) {
