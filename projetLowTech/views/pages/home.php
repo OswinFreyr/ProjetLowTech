@@ -1,5 +1,7 @@
 
-
+<?php 
+var_dump("vardump");
+?>
 
 <h1>Accueil</h1>
 <h2>LowTech Bordeaux</h2>
