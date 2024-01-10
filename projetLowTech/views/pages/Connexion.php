@@ -28,17 +28,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $hashedPassword = $row['password'];
         if (password_verify($password, $hashedPassword)) {
-            echo "Connexion réussie ";
             $row = $recupPseudo->fetch_assoc();
             $_SESSION['idUser'] = $row['id'];
             header("Location: index.php?page=profil"); 
 
             exit;
         } else {
-            echo "Mot de passe invalide.";
+            ?>
+            <p>mot de passe invalide</p>
+            <?php
         }
     } else {
-        echo "Vous ne possédez pas de compte.";
+        ?>
+            <p>Vouas ne possédez pas de compte</p>
+            <?php
     }
 
     $statement->close();
