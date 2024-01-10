@@ -1,8 +1,8 @@
 <div>
     <div>
         <form action="" method="get">
-            <label for="search"></label>
-            <input type="text" name="search" id="search">
+            <label for="search">Rechercher des posts par leur titre :</label>
+            <input type="search" name="search" id="search">
             <button type="submit" value="Rechercher">
         </form>
     </div>
