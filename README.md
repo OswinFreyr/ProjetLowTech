@@ -19,3 +19,5 @@ Importer dans `http://localhost/phpmyadmin/index.php` la base de données au moy
 Renseigner les informations de connexion à la base de données dans le fichier `[database.php](./projetLowTech/config/database.php)`.
 
 # Utilisation
+
+    
