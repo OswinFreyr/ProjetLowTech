@@ -8,8 +8,8 @@
         <li id="annonces"> <a href="index.php?page=annonces">Annonces</a> </li>
         <li id="benevoles"> <a href="index.php?page=annuaire">Bénévoles</a> </li>
         <li id="connexion"> 
-            <a href="index.php?page=connexion">Se connecter</a>
-            <a href="index.php?page=inscription">S'inscrire</a>
+            <!-- <a href="index.php?page=connexion">Se connecter</a> -->
+            <!-- <a href="index.php?page=inscription">S'inscrire</a> -->
             <a href="index.php?page=profil">Mon compte</a>
         </li>
     </ul>
