@@ -1,3 +1,12 @@
+<?php
+// session_start();
+
+// if (!isset($_SESSION['utilisateur_connecte'])) {
+//     header("Location: Connexion.php");
+//     exit();
+// }
+?>
+
 <div>
     MENU (afaire)
 </div>
