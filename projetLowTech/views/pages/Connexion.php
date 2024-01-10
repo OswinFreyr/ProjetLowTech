@@ -1,7 +1,5 @@
 <?php
 session_start();
-var_dump("page connexion");
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pseudo = $_POST['pseudo'];
@@ -39,15 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
             <p>mot de passe invalide</p>
             <?php
-            var_dump("mauvais mot de passe");
-
         }
     } else {
         ?>
             <p>Vouas ne possédez pas de compte</p>
             <?php
-            var_dump("no compte");
-
     }
 
     $statement->close();
