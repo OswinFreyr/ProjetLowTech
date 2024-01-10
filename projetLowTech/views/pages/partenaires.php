@@ -19,7 +19,7 @@
     </div>
     <div id="lien_site_1">
         <button>
-            <a href="https://tinylabassociation.dorik.io">Site</a>
+            <a href="https://tinylabassociation.dorik.io" target="_blank">Site</a>
         </button>
     </div>
 </div>
@@ -43,7 +43,7 @@
     </div>
     <div id="lien_site_2">
         <button>
-            <a href="https://laplanche-bois.fr">Site</a>
+            <a href="https://laplanche-bois.fr" target="_blank">Site</a>
         </button>
     </div>
 </div>
