@@ -1,26 +1,26 @@
 
 
 <script src="projetLowTech\views\scripts\inscription.js" defer></script>
-<form id="signupForm" action="index.php?page=inscription" method="post">
+<form class="formProfil" id="signupForm" action="index.php?page=inscription" method="post">
     <div id="step1">
         <h2>Informations personnelles</h2>
-        Pseudo : <input type="text" name="username" required><br><br>
-        Nom: <input type="text" name="name" required><br><br>
-        Prénom: <input type="text" name="firstname" required><br><br>
-        Ville: <input type="text" name="city" required><br><br>
+        Pseudo : <input class="inputButtonFromProfil" type="text" name="username" required><br><br>
+        Nom: <input class="inputButtonFromProfil"  type="text" name="name" required><br><br>
+        Prénom: <input class="inputButtonFromProfil"  type="text" name="firstname" required><br><br>
+        Ville: <input class="inputButtonFromProfil"  type="text" name="city" required><br><br>
         <div class="boutons">
-        <button type="button" onclick="nextStep()">Suivant</button>        
+        <button class="inputButtonFromProfil"  type="button" onclick="nextStep()">Suivant</button>        
     </div>
     </div>
 
     <div id="step2" style="display : none;">
         <h2>Informations de contact</h2>
-        Email: <input type="email" name="mail" required><br><br>
-        Téléphone: <input type="tel" name="phone" required><br><br>
-        Mot de passe: <input type="password" name="password" required><br><br>
+        Email: <input class="inputButtonFromProfil"  type="email" name="mail" required><br><br>
+        Téléphone: <input class="inputButtonFromProfil"  type="tel" name="phone" required><br><br>
+        Mot de passe: <input class="inputButtonFromProfil"  type="password" name="password" required><br><br>
         <div class="boutons">
-            <button type="button" onclick="previousStep()">Précédent</button>
-            <button type="button" onclick="nextStep()">Suivant</button>
+            <button class="inputButtonFromProfil" type="button" onclick="previousStep()">Précédent</button>
+            <button class="inputButtonFromProfil"  type="button" onclick="nextStep()">Suivant</button>
         </div>
         
     </div>
@@ -28,7 +28,7 @@
     <div id="step3" style="display : none;">
         <h3>Compétences </h3>
         <div class="competence">
-            <input type="checkbox" id="competence1" name="competence[]" value="Compétence 1">
+            <input  type="checkbox" id="competence1" name="competence[]" value="Compétence 1">
             <label for="competence1">Compétence 1</label><br>
         </div>
         
@@ -40,13 +40,13 @@
 
         
 
-        <button onclick="previousStep()">Précédent</button>
-        <input type="submit" value="Créer mon compte">
+        <button class="inputButtonFromProfil"  onclick="previousStep()">Précédent</button>
+        <input class="inputButtonFromProfil"  type="submit" value="Créer mon compte">
     </div>
 </form>
 <div class="btnVersInscription">
     <p>Vous possédez déjà un compte ? </p>
-    <a class="btnLien" href="index.php?page=inscription">Se connecter</a>
+    <button class="btnRedir"  > <a href="index.php?page=inscription">Se connecter</a></button>
 </div>
 
 <script>

@@ -1,6 +1,6 @@
 #formConnexion {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     margin: 0;
     padding: 0;
     padding-top: 20px;
@@ -14,7 +14,7 @@ h2 {
     margin-top: 40px;
 }
 
-form {
+.formProfil {
     width: 300px;
     margin: 50px auto;
     padding: 20px;
@@ -31,18 +31,26 @@ label {
     display: block;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="submit"],
-input[type="tel"],
-input[type="email"],
-button {
+.inputButtonFromProfil {
     width: calc(100% - 12px);
     padding: 8px;
     margin: 5px 0 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.btnRedir {
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 15%;
+}
+
+.btnRedir a {
+    text-decoration: none;
 }
 
 .btn,
