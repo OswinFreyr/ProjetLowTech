@@ -7,9 +7,9 @@ $template = './views/posts.php';
 $needsPerPost = array();
 $commentsPerPost = array();
 
-if(empty($_GET)){
+if(empty($_GET['search'])){
     $users = PostManager::getAllPosts();
-}else if(!empty($_GET)){
+}else if(!empty($_GET['search'])){
     $users = PostManager::getPost($_GET['search']);
 }
 foreach($posts as $post){
