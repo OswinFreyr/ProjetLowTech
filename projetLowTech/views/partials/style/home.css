@@ -1,0 +1,14 @@
+#accueil {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.partie {
+    display: flex;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}

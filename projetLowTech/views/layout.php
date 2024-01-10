@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site</title>
+    <link rel="stylesheet" href="views/partials/style/connexion.css">
+    <link rel="stylesheet" href="views/partials/style/general.css">
+    <link rel="stylesheet" href="views/partials/style/header.css">
+
+
+    <title>LowTech Bordeaux</title>
 </head>
 <body>
     <?php require './views/partials/_header.php'; ?>
