@@ -1,5 +1,5 @@
 <footer>
-    <div>
+    <div id="footer_gauche">
         <ul>
             <li> <a href="">Signaler un problème</a> </li>
             <li> <a href="">Nous contacter</a> </li>
@@ -17,9 +17,9 @@
             <li> <a href="">Instagram</a> </li>
         </ul>
     </div>
-    <div>
+    <div id="footer_droit">
         <ul>
-            <li id="logo"> <img src="" alt="logo LowTech"> </li>
+            <li id="logo"> <img src="./partials/assets/LogoLTB.png" alt="logo LowTech"> </li>
             <li id="nomEntreprise"> <a href="#">LowTech Bordeaux</a> </li>
         </ul>
         <div>

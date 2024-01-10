@@ -1,0 +1,38 @@
+footer ul {
+    display: flex;
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+}
+footer a:visited{
+    color:black;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer_gauche{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#footer_droit{
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+}
+
+#footer_gauche ul{
+    display: flex;
+    flex-direction: column;
+}
+
+#footer_droit ul{
+    display: flex;
+    justify-content: space-around;
+}
