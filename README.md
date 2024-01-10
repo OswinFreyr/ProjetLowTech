@@ -6,7 +6,7 @@ Projet LowTech est un projet de plateforme de relations entre des besoins proven
 
 - [Architecture](#Architecture)
 - [Préparation](#Préparation)
-- [Utilisation](#Utilisation)
+- [Précautions](#Précautions)
 
 # Architecture
 
@@ -18,6 +18,6 @@ Le site a été testé en local via WAMP server et phpmyadmin.
 Importer dans `http://localhost/phpmyadmin/index.php` la base de données au moyen du `dblowtech.sql` fourni.
 Renseigner les informations de connexion à la base de données dans le fichier `[database.php](./projetLowTech/config/database.php)`.
 
-# Utilisation
+# Précautions
 
-    
+Le projet n'ayant pas abouti par manque de temps, certaines connexions et liaisons avec la base de données ne sont pas effectuée ou ne fonctionnent pas. Un début de mise en forme a été effectué par souci de lisibilité du site mais n'a également pas pu être achevé.
