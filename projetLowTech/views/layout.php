@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="views/partials/style/form.css">
     <link rel="stylesheet" href="views/partials/style/general.css">
     <link rel="stylesheet" href="views/partials/style/header.css">
+    <link rel="stylesheet" href="views/partials/style/footer.css">
+
 
 
     <title>LowTech Bordeaux</title>
