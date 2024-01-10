@@ -15,7 +15,7 @@ Le site a été testé en local via WAMP server et phpmyadmin.
 
 # Préparation
 
-Importer dans `http://localhost/phpmyadmin/index.php` la base de données au moyen du [fichier](./projetLowTech/dblowtech.sql) `dblowtech.sql` fourni.
+Importer dans `http://localhost/phpmyadmin/index.php` ([lien](http://localhost/phpmyadmin/index.php)) la base de données au moyen du [fichier](./projetLowTech/dblowtech.sql) `dblowtech.sql` fourni.
 Renseigner les informations de connexion à la base de données dans le [fichier](./projetLowTech/config/database.php) `database.php`.
 
 # Précautions
