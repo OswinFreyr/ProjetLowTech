@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         ?>
-            <p>Vouas ne possédez pas de compte</p>
+            <p>Vous ne possédez pas de compte</p>
             <?php
     }
 
