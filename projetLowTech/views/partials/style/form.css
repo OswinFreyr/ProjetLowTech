@@ -19,6 +19,8 @@ form {
     margin: 50px auto;
     padding: 20px;
     background-color: #4b95ae92;
+    /* color: #f5f5f5; */
+    font-weight: bold;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -31,7 +33,10 @@ label {
 
 input[type="text"],
 input[type="password"],
-input[type="submit"] {
+input[type="submit"],
+input[type="tel"],
+input[type="email"],
+button {
     width: calc(100% - 12px);
     padding: 8px;
     margin: 5px 0 10px;
@@ -51,6 +56,7 @@ input[type="submit"] {
 .btn,
 .btnLien {
     background-color: #186681ab;
+    color: #f5f5f5;
 }
 
 .btnLien {
@@ -62,5 +68,31 @@ input[type="submit"] {
 .btnVersInscription {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.btn,
+.btnLien:hover {
+    background-color: #124c60ab;
+
+}
+
+button:hover {
+    background-color: white;
+}
+
+#step3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#step3 h3 {
+    text-align: center;
+}
+
+.competence {
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }

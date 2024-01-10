@@ -27,19 +27,26 @@
 
     <div id="step3" style="display : none;">
         <h3>Compétences </h3>
+        <div class="competence">
+            <input type="checkbox" id="competence1" name="competence[]" value="Compétence 1">
+            <label for="competence1">Compétence 1</label><br>
+        </div>
+        
 
-        <input type="checkbox" id="competence1" name="competence[]" value="Compétence 1">
-        <label for="competence1">Compétence 1</label><br>
+        <div class="competence">
+            <input type="checkbox" id="competence2" name="competence[]" value="Compétence 2">
+            <label for="competence2">Compétence 2</label><br>
+        </div>
 
-        <input type="checkbox" id="competence2" name="competence[]" value="Compétence 2">
-        <label for="competence2">Compétence 2</label><br>
+        
+
         <button onclick="previousStep()">Précédent</button>
         <input type="submit" value="Créer mon compte">
     </div>
 </form>
 <div class="btnVersInscription">
-    <h2>Vous possédez déjà un compte ? </h2>
-    <a href="index.php?page=inscription">Se connecter</a>
+    <p>Vous possédez déjà un compte ? </p>
+    <a class="btnLien" href="index.php?page=inscription">Se connecter</a>
 </div>
 
 <script>
